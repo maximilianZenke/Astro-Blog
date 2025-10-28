@@ -1,0 +1,39 @@
+---
+import TagFilter from "./components/TagFilter.jsx";
+import "starlight-site-graph/styles/variables.css";
+import { PageGraph } from "starlight-site-graph/components";
+const posts = await Astro.glob("../pages/**/*.md");
+posts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).getTime() -
+    new Date(a.frontmatter.date).getTime()
+);
+
+//tags
+let uniqueTags = Array.from(
+  new Set(posts.flatMap((p) => p.frontmatter.tags || []))
+);
+---
+
+<html lang="de">
+  <head>
+    <title>Mein Blog</title>
+  </head>
+  <body>
+    <h1>Alle Posts</h1>
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={post.url}>{post.frontmatter.title}</a>
+            <br />
+            <small>{post.frontmatter.date}</small>
+          </li>
+        ))
+      }
+    </ul>
+    <h2>Tags</h2>
+    <TagFilter client:load posts={posts} />
+    <PageGraph />
+  </body>
+</html>

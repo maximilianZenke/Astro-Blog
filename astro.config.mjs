@@ -8,6 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
+  site: 'https://maximilianZenke.github.io',
   base: '/Astro-Blog',
   prefetch: true,
   integrations: [react(), sitegraphSitemapIntegration({

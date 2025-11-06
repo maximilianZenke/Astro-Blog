@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node -e \"require('fs').writeFileSync('dist/.nojekyll', '')\"",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -a"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.1",

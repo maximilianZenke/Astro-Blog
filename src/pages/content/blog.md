@@ -6,4 +6,4 @@ tags: ["python"]
 ---
 
 Content vom ersten Post.
-[Link zu Post2](/content/blog2)
+[Link zu Post2](/Astro-Blog/content/blog2)
